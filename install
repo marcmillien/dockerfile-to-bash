@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+set -u
+
+function RUN {
+  "$@"
+}
+
+function ENV {
+  export $1=$2
+}
+
+function COPY {
+  cp -v $1 $2
+}
+
+function FROM {
+  echo "This container should be based on $@"
+}
+
+function MAINTAINER {
+  echo "Maintained by $@"
+}
+
+source ./Dockerfile
